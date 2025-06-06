@@ -29,40 +29,44 @@ const TodoItem = props => {
   const isCheckedTrue = isChecked ? 'checked-title' : ''
   console.log(isChecked)
   return (
-    <li className='card'>
+    <li className="card">
       {isEdit ? (
-        <div className='text-btn-div'>
+        <div className="text-btn-div">
           <input
-            className='edit-input'
-            type='text'
+            className="edit-input"
+            type="text"
             value={taskTitle}
             onChange={onChangeTitle}
           />
-          <button className='save-edit-btn' onClick={onSaveEditTask}>
+          <button
+            className="save-edit-btn"
+            onClick={onSaveEditTask}
+            type="button"
+          >
             Save
           </button>
         </div>
       ) : (
-        <div className='text-btn-div'>
-          <div className='input-label-div'>
+        <div className="text-btn-div">
+          <div className="input-label-div">
             <input
-              className='check-box'
+              className="check-box"
               checked={isChecked}
               onChange={onClickCheckInput}
-              type='checkbox'
+              type="checkbox"
               id={id}
             />
             <p htmlFor={id} className={`title ${isCheckedTrue}`}>
               {title}
             </p>
           </div>
-          <button className='save-edit-btn' onClick={onClickEdit}>
+          <button className="save-edit-btn" onClick={onClickEdit} type="button">
             Edit
           </button>
         </div>
       )}
 
-      <button onClick={onDeleteTodo} className='delete-btn'>
+      <button onClick={onDeleteTodo} className="delete-btn" type="button">
         Delete
       </button>
     </li>

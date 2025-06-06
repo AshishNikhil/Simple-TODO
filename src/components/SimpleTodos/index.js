@@ -51,9 +51,11 @@ class SimpleTodos extends Component {
       todoList: filteredUsersData,
     })
   }
+
   onChangeInput = event => {
     this.setState({inputData: event.target.value})
   }
+
   onAddNewTask = () => {
     const {inputData} = this.state
     const newArr = {id: uuidv4(), title: inputData}
@@ -68,31 +70,35 @@ class SimpleTodos extends Component {
     const newUpdatedList = todoList.map(each => {
       if (each.id === id) {
         return {...each, title: taskTitle}
-      } else {
-        return each
       }
+      return each
     })
     this.setState({todoList: newUpdatedList})
   }
+
   render() {
-    const {todoList, inputData, isEdit} = this.state
+    const {todoList, inputData} = this.state
     return (
-      <div className='bg-container'>
-        <div className='todo-card'>
-          <h1 className='heading'>Simple Todos</h1>
-          <div className='input-div-container'>
+      <div className="bg-container">
+        <div className="todo-card">
+          <h1 className="heading">Simple Todos</h1>
+          <div className="input-div-container">
             <input
-              type='text'
-              className='input'
-              placeholder='Add Task'
+              type="text"
+              className="input"
+              placeholder="Add Task"
               value={inputData}
               onChange={this.onChangeInput}
             />
-            <button onClick={this.onAddNewTask} className='add-task-btn'>
+            <button
+              onClick={this.onAddNewTask}
+              className="add-task-btn"
+              type="button"
+            >
               Add
             </button>
           </div>
-          <ul className='todo'>
+          <ul className="todo">
             {todoList.map(eachTodo => (
               <TodoItem
                 key={eachTodo.id}
